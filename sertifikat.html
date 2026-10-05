@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sertifikat Peserta Rapat</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <strong>Absensi Rapat</strong>
+      <nav>
+        <a href="index.html">Absensi</a>
+        <a href="sertifikat.html" class="active">Sertifikat</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card" id="kosong" hidden>
+      <h1>Sertifikat belum tersedia</h1>
+      <p>Anda perlu mengisi absensi terlebih dahulu sebelum dapat mengunduh sertifikat.</p>
+      <a class="btn" href="index.html">Isi Absensi</a>
+    </section>
+
+    <section class="card" id="ada" hidden>
+      <h1>Sertifikat Anda</h1>
+      <p class="muted" id="sapaan"></p>
+      <canvas id="canvas" class="cert"></canvas>
+      <div class="aksi">
+        <button class="btn" id="btnPdf">Unduh PDF</button>
+        <button class="btn btn-alt" id="btnPng">Unduh PNG</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    const peserta = ambilPesertaAktif();
+    if (!peserta) {
+      document.getElementById('kosong').hidden = false;
+    } else {
+      document.getElementById('ada').hidden = false;
+      document.getElementById('sapaan').textContent =
+        'Terima kasih telah hadir, ' + peserta.nama + '.';
+      const canvas = document.getElementById('canvas');
+      gambarSertifikat(canvas, peserta);
+      document.getElementById('btnPdf').onclick = () => unduhPDF(canvas, peserta);
+      document.getElementById('btnPng').onclick = () => unduhPNG(canvas, peserta);
+    }
+  </script>
+</body>
+</html>
