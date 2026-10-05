@@ -1,11 +1,11 @@
 /* ============ KONFIGURASI (ubah sesuai kebutuhan) ============ */
 const CONFIG = {
-  namaRapat: "Rapat Koordinasi Nasional",
-  tanggal: "5 Oktober 2026",
-  tempat: "Makassar, Sulawesi Selatan",
-  penyelenggara: "Nama Instansi Penyelenggara",
-  penandatangan: "Nama Pejabat, S.E., M.M.",
-  jabatanPenandatangan: "Kepala Bagian Umum",
+  namaRapat: "Rabu Berbagi Seri XIX",
+  tanggal: "7 Oktober 2026",
+  tempat: "Kendari, Sulawesi Selatan",
+  penyelenggara: "KPU Provinsi Sulawesi Tenggara",
+  penandatangan: "Dr. Asril, S.Sos.,M.Si",
+  jabatanPenandatangan: "Ketua Divisi Hukum dan Pengawasan",
   // Opsional: URL Google Apps Script Web App untuk menyimpan data ke Google Sheets.
   // Kosongkan ("") jika hanya ingin menyimpan di browser peserta.
   sheetsUrl: ""
